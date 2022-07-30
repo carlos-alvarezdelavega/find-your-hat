@@ -21,7 +21,7 @@ class Field {
       console.log('You are * and your hat is ^.');
       console.log('Avoid the holes (O) and find your hat!');
       console.log('Don\'t go out of bounds or you may lose!');
-      console.log('Use the u, d, l, and r keys to navigate.');
+      console.log('Use the u, d, l, and r keys to navigate the field.');
       console.log('u = up, d = down, l = left, r = right');
       console.log('Good luck!');
     } if(instruct === 'n'){
@@ -78,11 +78,11 @@ class Field {
 
 const myField = new Field([
     ['*', '░', 'O', '░', '░', '░', 'O'],
-    ['░', '░', '░', '░', '░', '░', '░'],
+    ['░', 'O', '░', '░', 'O', '░', '░'],
     ['░', '░', '░', 'O', 'O', 'O', '░'],
-    ['O', 'O', 'O', '^', '░', '░', '░'],
-    ['░', '░', '░', '░', '░', '░', 'O'],
-    ['░', '░', '░', '░', '░', '░', '░'],
+    ['O', '░', 'O', '^', 'O', '░', '░'],
+    ['░', '░', 'O', '░', '░', '░', 'O'],
+    ['░', '░', '░', 'O', '░', '░', '░'],
 ]);
 
 console.log(myField.print());
