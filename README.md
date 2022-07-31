@@ -12,9 +12,9 @@ The scenario is that the player has lost their hat (^) in a field (░) full of 
 
 ## Game instructions
  
-You are * and your hat is ^.
-Avoid the holes (O) and find your hat!
-Don't go out of bounds or you may lose!
-Use the u, d, l, and r keys to navigate the field.
-u = up, d = down, l = left, r = right.
-Good luck!
+- You are * and your hat is ^.
+- Avoid the holes (O) and find your hat!
+- Don't go out of bounds or you may lose!
+- Use the u, d, l, and r keys to navigate the field.
+- u = up, d = down, l = left, r = right.
+- Good luck!
