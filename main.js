@@ -26,10 +26,8 @@ class Field {
   }
 
   navigateField() {
+    this.print(this.landscape);
     let navigate = prompt("Which way? ");
-    let pathCharacter = "*";
-    let hole = "O";
-    let hat = "^";
     let x = 0;
     let y = 0;
     let current = this.landscape[y][x];
@@ -102,10 +100,6 @@ class Field {
     // Add initial Path
     newField[0][0] = pathCharacter;
 
-    /* === Join field ===
-    for (let f in newField) {
-      console.log(newField[f].join(""));
-    } */
     return newField
   } // End generateField()
 
@@ -114,22 +108,66 @@ class Field {
       console.log(this.landscape[i].join(""));
     }
   }
- 
+
+ randomStart () {
+  this.landscape[0][0] = fieldCharacter;
+  
+  this.print(this.landscape);
+    
+  const randomX = Math.floor(Math.random() * this.landscape.length)
+  const randomY = Math.floor(Math.random() * this.landscape.length)
+
+  let y = randomY;
+  
+  let x = randomX;
+  
+  let current = this.landscape[x][y];
+
+  let navigate = prompt("Which way? ");
+  while (current !== hat) {
+    //Navigation logic
+    if (navigate === "u") {
+      y--;
+    } else if (navigate === "d") {
+      y++;
+    } else if (navigate === "l") {
+      x--;
+    } else if (navigate === "r") {
+      x++;
+    } else {
+      console.log("Out of bounds. You lose!");
+      break;
+    }
+    //Lose/Win conditions
+    if (this.landscape[y][x] === hole) {
+      console.log("You fell in a hole! Game over.");
+      break;
+    } else if (this.landscape[y][x] === hat) {
+      console.log("You found your hat! You win!");
+      break;
+    } else {
+      this.landscape[y][x] = pathCharacter;
+      this.print();
+      navigate = prompt("Which way? ");
+    }
+    //Out of bounds condition
+    if (this.landscape[y] === undefined) {
+      console.log("Out of bounds. You lose!");
+      break;
+    } else if (y < 0 || x < 0) {
+      console.log("Out of bounds. You lose!");
+      break;
+    }
+  }
+
+ } // End randomStart property
+
 } // End Field Class
 
-/* const myField = new Field([
-  ["*", "░", "O", "░", "░", "░", "O"],
-  ["░", "O", "░", "░", "O", "░", "░"],
-  ["░", "░", "░", "O", "O", "O", "░"],
-  ["O", "░", "O", "^", "O", "░", "░"],
-  ["░", "░", "O", "░", "░", "░", "O"],
-  ["░", "░", "░", "O", "░", "░", "░"],
-]); */
-
 const mySecondField = new Field(Field.generateField(15, 15, 70))
-//console.log(myField.print());
-//console.log(myField.instructions());
 
+//console.log(mySecondField.instructions());
 
-console.log(mySecondField.print());
+//console.log(mySecondField.randomStart());
+
 console.log(mySecondField.navigateField())
