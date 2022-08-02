@@ -71,17 +71,13 @@ class Field {
   }
 
   static generateField(width, height, percentage) {
-    // === Main components ===
-    const hat = "^";
-    const hole = "O";
-    const fieldCharacter = "░";
-    const pathCharacter = "*";
     // === New Field Logic ===
+    // Where the new field will be stored
     let newField = [];
 
     for (let i = 0; i < height; i++) {
       let newRow = [];
-      for (let j = 0; j < width; j++) {
+      for (let j = 0; j < height; j++) {
         newRow.push(fieldCharacter);
       }
       newField.push(newRow);
@@ -89,8 +85,8 @@ class Field {
 
     // === Add special characters ===
     // Random elements
-    const randomHeight = Math.floor(Math.random() * (height + 1));
-    const randomWidth = Math.floor(Math.random() * (width + 1));
+    const randomHeight = Math.floor(Math.random() * height);
+    const randomWidth = Math.floor(Math.random() * width);
     // Add holes
     let numOfHoles = 0;
     const holePercentage = Math.floor(((width + height) / 100) * percentage);
@@ -102,6 +98,7 @@ class Field {
     }
     // Add hat
     newField[randomHeight][randomWidth] = hat;
+    
     // Add initial Path
     newField[0][0] = pathCharacter;
 
@@ -129,7 +126,7 @@ class Field {
   ["░", "░", "░", "O", "░", "░", "░"],
 ]); */
 
-const mySecondField = new Field(Field.generateField(10, 10, 60))
+const mySecondField = new Field(Field.generateField(15, 15, 70))
 //console.log(myField.print());
 //console.log(myField.instructions());
 
