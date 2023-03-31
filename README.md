@@ -10,6 +10,14 @@ The scenario is that the player (*) has lost their hat (^) in a field (░) full
 
 ![Game Demo](/Resources/find-your-hat-demo.gif)
 
+## How to start the game?
+
+From visual studio code, you'll need to open the internal terminal. 
+
+In your terminal, make sure you are on the game directory. You may change the working directory with the `cwd` command. 
+
+Type in your terminal `node main.js` to display the game interface in the terminal.
+
 ## Game instructions
  
 - You are * and your hat is ^.
